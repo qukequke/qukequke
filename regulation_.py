@@ -77,13 +77,14 @@ print(XX.shape)
 initial_theta = np.zeros(XX.shape[1])
 print(costFunctionReg(initial_theta, 1, XX, y))
 
-res2 = minimize(costFunctionReg, initial_theta, args=(1, XX, y), method='Newton-CG', jac=gradientReg)
+#res2 = minimize(costFunctionReg, initial_theta, args=(10.0, XX, y), method='Newton-CG', jac=gradientReg)
 #res2 = minimize(costFunctionReg, initial_theta, args=(100, XX, y), method='Newton-CG', jac=gradientReg, options={'maxiter': 3000})
-print('---------------------------------')
-print(res2)
+#res2 = minimize(costFunctionReg, initial_theta, args=(100.0, XX, y), jac=gradientReg, options={'maxiter': 3000})
+# print('---------------------------------')
+# print(res2)
 
 
-for i, C in enumerate([0.0, 0.0, 0.0]):
+for i, C in enumerate([0.0, 1.0, 100.0]):
     # 最优化 costFunctionReg
     res2 = minimize(costFunctionReg, initial_theta, args=(C, XX, y), jac=gradientReg, options={'maxiter': 3000})
 
@@ -101,4 +102,4 @@ for i, C in enumerate([0.0, 0.0, 0.0]):
     h = h.reshape(xx1.shape)
     axes.flatten()[i].contour(xx1, xx2, h, [0.5], linewidths=1, colors='g')
     axes.flatten()[i].set_title('Train accuracy {}% with Lambda = {}'.format(np.round(accuracy, decimals=2), C))
-# plt.show()
+plt.show()
