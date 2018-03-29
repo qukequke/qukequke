@@ -103,4 +103,5 @@ for i, C in enumerate([0.0, 1.0, 100.0]):
     axes.flatten()[i].contour(xx1, xx2, h, [0.5], linewidths=1, colors='g')
     axes.flatten()[i].set_title('Train accuracy {}% with Lambda = {}'.format(np.round(accuracy, decimals=2), C))
 plt.show()
-
+1111111
+222222
